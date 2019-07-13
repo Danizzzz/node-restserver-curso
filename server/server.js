@@ -12,10 +12,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+// Configaración global de rutas
+app.use(require('./routes/index'));
 
-app.use(require('./routes/usuario'));
 
-mongoose.connect(process.env.URLDB = urlDB, (err, res) => {
+
+
+mongoose.connect(process.env.URLDB, (err, res) => {
     if (err) throw err;
     console.log('Base de datos online');
 });
